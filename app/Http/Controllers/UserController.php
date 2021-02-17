@@ -14,7 +14,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::get();
+        return $users;
     }
 
     /**
@@ -36,7 +37,7 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        //
+        return $user->events;
     }
 
     /**
@@ -60,5 +61,12 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         //
+    }
+
+    public function showRegistrations() {
+        $user = Auth::user();
+
+        return $user->registrations->count();
+
     }
 }

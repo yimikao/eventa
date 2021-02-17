@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registration;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class RegistrationController extends Controller
@@ -23,9 +24,9 @@ class RegistrationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Event $event)
     {
-        //
+        return Registration::create(['event_id' => $event->id]);
     }
 
     /**
